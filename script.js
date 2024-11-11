@@ -37,17 +37,25 @@ function reverseArray(array) {
     }
     return reversed;
 }
-// console.log(reverseArray(["A", "B", "C"])); // outputs ["C", "B", "A"];
+// Example
+//console.log(reverseArray(["A", "B", "C"])); // outputs ["C", "B", "A"];
 
 }
 // Example output for reverseArrayInPlace:
+// swaps elements from beginning to end in the array and moves them towards the center allowing us to swap the elements efficiently. Previously I used shift, unshift, push,
+// and pop but did not meet critera for in place approach
 function reverseArrayInPlace(array) {
-    let length = array.length;
-    for (let i = 0; i < Math.floor(length / 2); i++) {
-        // Remove the last element and add it to the beginning
-        array.unshift(array.pop());
-        // Remove the first element and add it to the end
-        array.push(array.shift());
+    let left = 0;
+    let right = array.length - 1;
+
+    while (left < right) {
+        let temp = array[left];
+        array[left] = array[right];
+        array[right] = temp;
+
+        // Move towards the center
+        left++;
+        right--;
     }
 }
 //Ex:
