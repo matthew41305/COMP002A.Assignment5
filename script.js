@@ -30,8 +30,29 @@ function sum(numbers) {
 // given as an argument by reversing its elements. Neither may use the standard reverse
 // method.
 // Example output for reverseArray:
+function reverseArray(array) {
+    let reversed = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+        reversed.push(array[i]);
+    }
+    return reversed;
+}
 // console.log(reverseArray(["A", "B", "C"])); // outputs ["C", "B", "A"];
+
+}
 // Example output for reverseArrayInPlace:
+function reverseArrayInPlace(array) {
+    let length = array.length;
+    for (let i = 0; i < Math.floor(length / 2); i++) {
+        // Remove the last element and add it to the beginning
+        array.unshift(array.pop());
+        // Remove the first element and add it to the end
+        array.push(array.shift());
+    }
+}
+//Ex:
 // let arrayValue = [1, 2, 3, 4, 5];
 // reverseArrayInPlace(arrayValue);
 // console.log(arrayValue); // outputs [5, 4, 3, 2, 1]
+
+
